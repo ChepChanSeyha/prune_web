@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Prune Web',
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
-      // home: AuthService().handleAuth(),
+      // home: HomePage(),
+      home: AuthService().handleAuth(),
       theme: ThemeData(
         primarySwatch: Colors.red
       ),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:prune_web/services/auth_service.dart';
 
 class NavigationBar extends StatelessWidget {
   @override
@@ -11,13 +12,13 @@ class NavigationBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          SizedBox(
-            height: 80,
-            width: 150,
-            child: Image.network(
-                'https://github.com/flutter/website/blob/master/_includes/code/layout/lakes/images/lake.jpg?raw=true',
-                fit:BoxFit.cover,
-                ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: 90,
+              width: 150,
+              child: Image.asset('assets/logo.png'),
+            ),
           ),
           Container(
           ),
@@ -26,8 +27,24 @@ class NavigationBar extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               _NavbarItem('Episode'),
+              SizedBox(
+                width: 20,
+              ),
               _NavbarItem('About'),
-              SizedBox(width: 50,)
+              SizedBox(width: 20,),
+              //signout
+              RaisedButton(
+              onPressed: (){
+                AuthService().signOut();
+                
+              },
+              child: Center(
+                child: Text('Sign out')
+                ),
+                color: Colors.red,
+              
+              ),
+              SizedBox(width: 20,)
 
             ],
           )
